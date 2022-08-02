@@ -13,7 +13,7 @@ const uri = "mongodb+srv://nicewithdice:passdice@cluster0.pt6ws.mongodb.net/?ret
 const { userJoin, getCurrentUser } = require('./utils/users')
 const roll = require('./utils/logic.js')
 console.log(roll.rollDice())
-// const PORT = 3000 || process.env.PORT
+const PORT = 3000 || process.env.PORT
 // server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 // ****** For heroku, comment out the server.listen and replace it with the app.listen you see below. if you are running it on your own server without heroku then leave code as is ******
