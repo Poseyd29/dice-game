@@ -90,6 +90,7 @@
 // });
 
 let submitButton = document.querySelector('.submit')
+let rollBtn = document.querySelector('.roll-button')
 const playerInfoForm = document.getElementById('')
 const socket = io();
 
@@ -97,7 +98,45 @@ socket.on('message', message => {
   console.log(message)
 })
 
-// Info Submit
-playerInfoForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-})
+
+rollBtn.addEventListener('click', rollDice)
+
+// when roll is clicked 
+let firstPlayerScore = 0
+let secondPlayerScore = 0
+let turnCount = 15
+
+function rollDice() {
+  const firstRandomNum = Math.floor(Math.random() * 6) + 1
+  const secondRandomNum = Math.floor(Math.random() * 6) + 1
+  for (let j = 0; j < 15; j++) {
+    firstRandomNum
+    secondRandomNum
+    firstPlayerScore += firstRandomNum
+    secondPlayerScore += secondRandomNum
+  }
+  console.log(firstPlayerScore)
+  console.log(secondPlayerScore)
+
+  socket.on('score', score => {
+    console.log(score)
+  })
+
+  // console.log(rollDice())
+
+  // const firstDiceImage = 'img/dice.png' + firstRandomNum + '.png';
+  // document.querySelector('img')[0].setAttribute('src', firstDiceImage)
+
+
+  // const secondDiceImage = 'img/dice.png' + secondRandomNum + '.png';
+  // document.querySelector('img')[1].setAttribute('src', firstDiceImage)
+
+  // if (firstRandomNum > secondRandomNum) {
+  //   document.querySelector('h1').innerHTML = 'The winner is player 1'
+  // } else if (firstRandomNum < secondRandomNum) {
+  //   document.querySelector('h1').innerHTML = 'The winner is player 2'
+  // } else {
+  //   document.querySelector('h1').innerHTML = 'Its a draw'
+  // }
+
+}

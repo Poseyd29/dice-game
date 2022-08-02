@@ -39,6 +39,15 @@ a {
 }
 
 /* Chat Page */
+.score {
+	margin: 0.4em 0.4em;
+}
+
+.roll-button {
+	padding: 2.5em;
+	background: #ffffff;
+	width: 200px;
+}
 
 .chat-container {
 	max-width: 1100px;
@@ -114,6 +123,8 @@ a {
 .chat-form-container {
 	padding: 20px 30px;
 	background-color: var(--dark-color-a);
+	display: flex;
+	justify-content: center;
 }
 
 .chat-form-container form {

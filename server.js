@@ -98,6 +98,9 @@ server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 const bodyParser = require('body-parser')
 const mongo = require('mongodb');
 const uri = "mongodb+srv://nicewithdice:passdice@cluster0.pt6ws.mongodb.net/?retryWrites=true&w=majority";
+const { userJoin, getCurrentUser } = require('./utils/users')
+const roll = require('./utils/logic.js')
+console.log(roll.rollDice())
 
 // Database Setup
 let MongoClient = require('mongodb').MongoClient;
@@ -120,11 +123,21 @@ MongoClient.connect(uri, { useUnifiedTopology: true })
     })
   })
 
+// 
+
+
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Run  when client connects
 io.on('connection', socket => {
+  // Join Room
+  socket.on('joinRoom', ({ username, room }) => {
+    const user = userJoin(socket.id, username, room);
+    socket.join(user.room)
+  })
+
 
   // Welcome current user
   socket.emit('message', 'did this emit? i hope it emits')
@@ -137,5 +150,11 @@ io.on('connection', socket => {
     io.emit('message', 'A user has left the chat')
   })
 
+  // Runs when user rolls dice
+  socket.broadcast.emit('score', 'opponent just rolled a');
 
+  // Run this when user wins 
+  socket.emit('result', 'player [] was the winner')
+
+  // Run this when user loses 
 })
