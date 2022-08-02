@@ -1,13 +1,16 @@
-# ChatCord App
-Realtime chat app with websockets using Node.js, Express and Socket.io with Vanilla JS on the frontend with a custom UI
-[![Run on Repl.it](https://repl.it/badge/github/bradtraversy/chatcord)](https://repl.it/github/bradtraversy/chatcord)
-## Usage
-```
+# Nice With Dice App
+Realtime dice rolling app with websockets using Node.js, Express and Socket.io!
+
+
+## Instructions
+
 npm install
 npm run dev
 
 Go to localhost:3000
-```
 
-## Notes
-The *_html_css* folder is just a starter template to follow along with the tutorial at https://www.youtube.com/watch?v=jD7FnbI76Hg&t=1339s. It is not part of the app
+// For heroku, comment out the server.listen and replace it with the app.listen. if you are running it on your own server without heroku then leave code as is
+
+You get 15 rolls. Highest score at the end of the 15 rolls wins! Very Simple
+
+
