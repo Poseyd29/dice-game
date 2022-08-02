@@ -14,13 +14,13 @@ const { userJoin, getCurrentUser } = require('./utils/users')
 const roll = require('./utils/logic.js')
 console.log(roll.rollDice())
 const PORT = 3000 || process.env.PORT
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+// server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 // ****** For heroku, comment out the server.listen and replace it with the app.listen you see below. if you are running it on your own server without heroku then leave code as is ******
 
-// app.listen(process.env.PORT || 3000, function () {
-//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 // Database Setup
 let MongoClient = require('mongodb').MongoClient;
